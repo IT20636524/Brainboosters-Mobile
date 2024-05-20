@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "714950012897",
+    "project_id": "exercise-app-a06d5",
+    "storage_bucket": "exercise-app-a06d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714950012897:android:fad7a2f05ef55e48b3eca0",
+        "android_client_info": {
+          "package_name": "com.salkuadrat.learning.learning_pose_detection_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALa50dR3i1wyB5r0-1mW3CT95txCQGMoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
