@@ -60,7 +60,7 @@ class _LevelsPageState extends State<LevelsPage> {
     {
       'name': 'Level 1',
       'description': 'Description of Level 1',
-      'categories': ['Personal', 'Homestead', 'Garden'],
+      'categories': ['Personal', 'Homestead', 'School'],
       'threshold': 60, // Time threshold for unlocking level 1 (in seconds)
     },
     {
@@ -160,7 +160,7 @@ class _LevelsPageState extends State<LevelsPage> {
                             List<TaskManagementQuestion> filteredTasks = [];
                             categories.forEach((category) {
                               filteredTasks.addAll(
-                                  getTasksByCategory(category).where((task) => task.difficultyLevel == widget.difficultyFactor).take(5));
+                                  getTasksByCategory(category).where((task) => task.difficultyLevel == widget.difficultyFactor).take(1));
                             });
 
                             // Navigate to the next page with filtered tasks

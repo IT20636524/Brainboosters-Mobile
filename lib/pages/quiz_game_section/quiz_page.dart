@@ -755,7 +755,10 @@ class _QuizPageState extends State<QuizPage> {
     }
 
     // Select the first available camera
-    final camera = cameras.first;
+    final camera = cameras.firstWhere(
+      (camera) => camera.lensDirection == CameraLensDirection.front,
+      orElse: () => cameras.first, // Fallback to the first available camera if no front camera is found
+    );
 
     // Create a CameraController instance
     final CameraController controller = CameraController(
