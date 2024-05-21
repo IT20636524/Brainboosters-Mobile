@@ -113,12 +113,31 @@ class _AnswerPageState extends State<AnswerPage> {
                     data: task,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text('- $task'),
+                      child: Container(
+                        padding: EdgeInsets.all(4.0), // Less padding
+                        decoration: BoxDecoration(
+                          color: Colors.purple[100], // Light purple background color
+                          border: Border.all(
+                            color: Colors.deepPurple, // Solid border color
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(4.0), // Optional: rounded corners
+                        ),
+                        child: Text('- $task'),
+                      ),
                     ),
                     feedback: Material(
                       elevation: 8.0,
                       child: Container(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(4.0), // Less padding
+                        decoration: BoxDecoration(
+                          color: Colors.purple[100], // Light purple background color
+                          border: Border.all(
+                            color: Colors.deepPurple, // Solid border color
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(4.0), // Optional: rounded corners
+                        ),
                         child: Text(task),
                       ),
                     ),

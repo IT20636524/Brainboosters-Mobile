@@ -60,19 +60,19 @@ class _LevelsPageState extends State<LevelsPage> {
     {
       'name': 'Level 1',
       'description': 'Description of Level 1',
-      'categories': ['Personal', 'Homestead', 'School'],
+      'categories': ['School', 'Homestead', 'Other Activities'],
       'threshold': 60, // Time threshold for unlocking level 1 (in seconds)
     },
     {
       'name': 'Level 2',
       'description': 'Description of Level 2',
-      'categories': ['Personal', 'Homestead', 'Garden'],
+      'categories': ['School', 'Homestead', 'Other Activities'],
       'threshold': 120, // Time threshold for unlocking level 2 (in seconds)
     },
     {
       'name': 'Level 3',
       'description': 'Description of Level 3',
-      'categories': ['Personal', 'Homestead', 'Garden'],
+      'categories': ['School', 'Homestead', 'Other Activities'],
       'threshold': 180, // Time threshold for unlocking level 3 (in seconds)
     },
   ];
@@ -179,13 +179,23 @@ class _LevelsPageState extends State<LevelsPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  level['name'],
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.deepPurple,
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      level['name'],
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.deepPurple,
+                                      ),
+                                    ),
+                                    if (isLocked)
+                                      Icon(
+                                        Icons.lock,
+                                        color: Colors.deepPurple,
+                                      ),
+                                  ],
                                 ),
                                 SizedBox(height: 5),
                                 Text(level['description']),

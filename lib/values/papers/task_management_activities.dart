@@ -42,7 +42,7 @@ List<TaskManagementQuestion> sampleTasks = [
       'Put away toys before going to school',
       'Make bed in the morning'
     ],
-    difficultyLevel: 1,
+    difficultyLevel: 2,
   ),
   TaskManagementQuestion(
     id: 3,
@@ -64,7 +64,7 @@ List<TaskManagementQuestion> sampleTasks = [
       'Pack backpack for tomorrow',
       'Sharpen 3 pencils for the next class'
     ],
-    difficultyLevel: 2,
+    difficultyLevel: 1,
   ),
   TaskManagementQuestion(
     id: 4,
@@ -86,7 +86,7 @@ List<TaskManagementQuestion> sampleTasks = [
       'Rake leaves for 15 minutes',
       'Use the watering can to sprinkle water on the houseplants'
     ],
-    difficultyLevel: 3,
+    difficultyLevel: 1,
   ),
   // TaskManagementQuestion(
   //   id: 1,

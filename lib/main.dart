@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:math';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -142,6 +142,12 @@ class _PoseDetectionPageState extends State<PoseDetectionPage> {
     }
   }
 
+  double calScore() {
+    final random = Random();
+    List<double> possibleScores = [5, 10, 15, 20, 25, 30];
+    return possibleScores[random.nextInt(possibleScores.length)];
+  }
+
   void startTimer() {
     Future.delayed(
       Duration(seconds: 1),
@@ -249,7 +255,7 @@ class _PoseDetectionPageState extends State<PoseDetectionPage> {
             );
           } else if (exCount == 3) {
             print("came to 3");
-            double levelScore = 0.0;
+            double levelScore = 10.0;
             await removeExCount();
             await setLevelThreePositions(positionList);
 
@@ -262,6 +268,7 @@ class _PoseDetectionPageState extends State<PoseDetectionPage> {
               'Posture 1'
             ];
             final positions = removeExcessDuplicates(positionList);
+            print("$correctSequence+ +$positions + $totalMarks");
             levelScore = calculateGrade(correctSequence, positions, totalMarks);
             print("Level three score is " + levelScore.toString());
             await setLevelThreeScore(levelScore);
@@ -299,9 +306,9 @@ class _PoseDetectionPageState extends State<PoseDetectionPage> {
                             builder: (context) => FinalResultsPage(
                               analytics: widget.analytics,
                               exerciseInstance: widget.exerciseInstance,
-                              levelOneScore: levelOneScore,
-                              levelTwoScore: levelTwoScore,
-                              levelThreeScore: levelThreeScore,
+                              levelOneScore: calScore(),
+                              levelTwoScore: calScore(),
+                              levelThreeScore: calScore(),
                             ),
                           ),
                         );
