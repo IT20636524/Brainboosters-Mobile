@@ -59,7 +59,7 @@ class _QuizPageState extends State<QuizPage> {
 
   List<String> myEmotionList = [];
   String finalEmotion = "";
-
+  CameraController? controller;
   XFile? selectedImg;
   bool _isTimerPaused = false;
 
@@ -67,6 +67,19 @@ class _QuizPageState extends State<QuizPage> {
   void initState() {
     super.initState();
     startTimer();
+  }
+
+  @override
+  void dispose() {
+    _disposeCamera();
+    super.dispose();
+  }
+
+  Future<void> _disposeCamera() async {
+    if (controller != null && controller!.value.isInitialized) {
+      await controller?.dispose();
+      controller = null;
+    }
   }
 
   @override
@@ -761,19 +774,19 @@ class _QuizPageState extends State<QuizPage> {
     );
 
     // Create a CameraController instance
-    final CameraController controller = CameraController(
+    controller = CameraController(
       camera,
       ResolutionPreset.medium,
     );
 
     // Initialize the camera controller
-    await controller.initialize();
+    await controller!.initialize();
 
     // Capture the image
-    final XFile? capturedImg = await controller.takePicture();
+    final XFile? capturedImg = await controller!.takePicture();
 
     // Dispose the camera controller
-    await controller.dispose();
+    // await controller.dispose();
 
     if (capturedImg == null) {
       print("Image capture failed");
